@@ -1,0 +1,41 @@
+.Main {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.Header {
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.InfoBox {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.MusicBox {
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-top: 10px;
+}
+
+.MusicList {
+  height: 200px;
+  overflow: auto;
+}
+
+.TextBox{
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  height: 400px;
+  margin-top: 10px;
+}
+
+.ResultBox{
+  background-color: white;
+  border-radius: 15px;
+  height: 60px;
+}
