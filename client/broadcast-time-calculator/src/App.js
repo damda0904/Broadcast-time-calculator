@@ -1,3 +1,4 @@
+import useState from react ;
 import { Collapse, AutoComplete, Input } from 'antd';
 
 import './Layout.css';
@@ -14,30 +15,34 @@ function Music({ name, time }) {
   )
 }
 
-const music_list = [
-  {
-    "name" : "Musicccc",
-    "time" : "4 : 10"
-  },
-  {
-    "name" : "Musicccc",
-    "time" : "4 : 10"
-  },
-  {
-    "name" : "Musicccc",
-    "time" : "4 : 10"
-  },
-  {
-    "name" : "Musicccc",
-    "time" : "4 : 10"
-  },
-  {
-    "name" : "Musicccc",
-    "time" : "4 : 10"
-  }
-]
-
 function App() {
+  const [timer, setTimer] = useState("시작하기")
+  const [speed, setSpeed] = useState(0.0)
+  const [music_list, setMusicList] = useState([
+    {
+      "name" : "Musicccc",
+      "time" : "4 : 10"
+    },
+    {
+      "name" : "Musicccc",
+      "time" : "4 : 10"
+    },
+    {
+      "name" : "Musicccc",
+      "time" : "4 : 10"
+    },
+    {
+      "name" : "Musicccc",
+      "time" : "4 : 10"
+    },
+    {
+      "name" : "Musicccc",
+      "time" : "4 : 10"
+    }
+  ])
+  const [result, setResult] = useState(0.0)
+
+
   return (
     <div style={{background: "lightblue"}}>
       <div className='Main'>
@@ -49,13 +54,13 @@ function App() {
             <Collapse>
               <Panel header="샘플로 발표속도 측정하기">
                 <p>안녕하세요 이것은 테스트입니다. 반갑습니다 여러분</p>
-                <button>시작하기</button>
+                <button>{timer}</button>
               </Panel>
             </Collapse>
 
             <div style={{display:"flex"}}>
               <p>발표 속도</p>
-              <input className='TimeInput' value="0.0"/>
+              <input className='TimeInput' value={speed}/>
               <p>초</p>
             </div>
         </div>
@@ -84,7 +89,7 @@ function App() {
             <button className='ResultButton'>계산하기</button>
           </div>
           <div className="ResultBox">
-            <h1>0.0초</h1>
+            <h1>{result}초</h1>
           </div>
         </div>
       </div>
