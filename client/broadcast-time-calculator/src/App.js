@@ -50,16 +50,16 @@ function App(props) {
   // 타이머를 초단위로 변환한 initialTime과 setInterval을 저장할 interval ref
   const initialTime = useRef(tempHour * 60 * 60 + tempMin * 60 + tempSec);
 
-  const [count_button, setCountButton] = useState("시작하기")
+  const [timer, setTimer] = useState("시작하기")
   const [minute, setMin] = useState(padNumber(tempMin, 2));
   const [second, setSec] = useState(padNumber(tempSec, 2));
   const interval = useRef(null);
 
   const start_test = () => {
-    if (count_button == "시작하기"){
-      setCountButton("중지")
+    if (timer == "시작하기"){
+      setTimer("중지")
     } else {
-      setCountButton("시작하기")
+      setTimer("시작하기")
     }
   }
 
@@ -87,13 +87,13 @@ function App(props) {
               <Panel header="샘플로 발표속도 측정하기">
                 <p>안녕하세요 이것은 테스트입니다. 반갑습니다 여러분</p>
                 <p>{minute} : {second}</p>
-                <button onClick={start_test}>{count_button}</button>
+                <button onClick={start_test}>{timer}</button>
               </Panel>
             </Collapse>
 
             <div style={{display:"flex"}}>
               <p>발표 속도</p>
-              <input className='TimeInput' value="0.0"/>
+              <input className='TimeInput' value={speed}/>
               <p>초</p>
             </div>
         </div>
@@ -122,7 +122,7 @@ function App(props) {
             <button className='ResultButton'>계산하기</button>
           </div>
           <div className="ResultBox">
-            <h1>0.0초</h1>
+            <h1>{result}초</h1>
           </div>
         </div>
       </div>
