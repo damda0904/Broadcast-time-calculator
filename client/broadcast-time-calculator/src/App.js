@@ -50,6 +50,8 @@ function App(props) {
   // 타이머를 초단위로 변환한 initialTime과 setInterval을 저장할 interval ref
   const initialTime = useRef(tempHour * 60 * 60 + tempMin * 60 + tempSec);
 
+  const [speed, setSpeec] = useState(0)
+  const [result, setResult] = useState(0)
   const [timer, setTimer] = useState("시작하기")
   const [minute, setMin] = useState(padNumber(tempMin, 2));
   const [second, setSec] = useState(padNumber(tempSec, 2));
@@ -65,7 +67,7 @@ function App(props) {
 
   useEffect(() => {
     console.log("useEffect--------------------")
-    if(count_button == "중지") {
+    if(timer == "중지") {
       interval.current = setInterval(() => {
         initialTime.current += 1;
         setSec(padNumber(initialTime.current % 60, 2));
@@ -73,7 +75,7 @@ function App(props) {
       }, 1000);
       return () => clearInterval(interval.current);
     }
-  }, [count_button, second]);
+  }, [timer, second]);
 
   return (
     <div style={{background: "lightblue"}}>
